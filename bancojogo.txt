@@ -1,0 +1,21 @@
+create table jogo(
+    idjogo bigint auto_increment,
+    nome varchar(50),
+    empresa varchar(30),
+    primary key(idjogo)
+);
+
+insert into jogo(idjogo, nome, empresa)
+values(null,"League of Legends", "Riot Games"),
+(null,"Neopets", "Jumpstart"),
+(null,"Apex Legends", "Origin"),
+(null,"Rainbow Six Siege", "Ubisoft");
+
+create table personagem(
+    idpersonagem bigint auto_increment,
+    nome varchar(30) not null,
+    classe varchar(30) not null, 
+    idjogo bigint,
+    primary key(idpersonagem),
+    foreign key(idjogo) references jogo(idjogo)
+);
